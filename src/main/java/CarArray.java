@@ -14,7 +14,7 @@ public class CarArray {
     private static Car car6 = new Car(3586, AutoMake.TOYOTA, "Corolla", Color.GREEN, 548690);
     private static Car car7 = new Car(AutoMake.HYUNDAI, "Accent", 2015, Color.YELLOW, "876KGH");
 
-    public static Car searchById(Car[] car, int id) {
+    public Car searchById(Car[] car, int id) {
         Car searchCar = null;
         for (Car x : car) {
             if (x.getId() == id) searchCar = x;
@@ -22,7 +22,7 @@ public class CarArray {
         return searchCar;
     }
 
-    public static Car[] searchByMake(Car[] car, AutoMake autoMake) {
+    public Car[] searchByMake(Car[] car, AutoMake autoMake) {
         int count = 0;
         int count1 = 0;
         for (Car x : car) {
@@ -38,7 +38,7 @@ public class CarArray {
         return searchCars;
     }
 
-    public static Car[] searchByModel(Car[] car, String model) {
+    public Car[] searchByModel(Car[] car, String model) {
         int count = 0;
         int count1 = 0;
         for (Car x : car) {
@@ -54,7 +54,7 @@ public class CarArray {
         return searchCars;
     }
 
-    public static Car[] searchByFirstReg(Car[] car, int firstReg) {
+    public Car[] searchByFirstReg(Car[] car, int firstReg) {
         int count = 0;
         int count1 = 0;
         for (Car x : car) {
@@ -70,7 +70,7 @@ public class CarArray {
         return searchCars;
     }
 
-    public static Car[] searchByColor(Car[] car, Color color) {
+    public Car[] searchByColor(Car[] car, Color color) {
         int count = 0;
         int count1 = 0;
         for (Car x : car) {
@@ -86,7 +86,7 @@ public class CarArray {
         return searchCars;
     }
 
-    public static Car[] searchByPrice(Car[] car, int price) {
+    public Car[] searchByPrice(Car[] car, int price) {
         int count = 0;
         int count1 = 0;
         for (Car x : car) {
@@ -102,7 +102,7 @@ public class CarArray {
         return searchCars;
     }
 
-    public static Car searchByRegistration(Car[] car, String registration) {
+    public Car searchByRegistration(Car[] car, String registration) {
         Car searchCar = null;
         for (Car x : car) {
             try {
@@ -116,28 +116,29 @@ public class CarArray {
 
     public static void main(String[] args) {
         Car[] cars = {car1, car2, car3, car4, car5, car6, car7};
+        CarArray carArray = new CarArray();
 
         switch (args[0]) {
             case "id":
-                System.out.println(searchById(cars, Integer.parseInt(args[1])));
+                System.out.println(carArray.searchById(cars, Integer.parseInt(args[1])));
                 break;
             case "make":
-                System.out.println(Arrays.toString(searchByMake(cars, AutoMake.valueOf(args[1]))));
+                System.out.println(Arrays.toString(carArray.searchByMake(cars, AutoMake.valueOf(args[1]))));
                 break;
             case "model":
-                System.out.println(Arrays.toString(searchByModel(cars, args[1])));
+                System.out.println(Arrays.toString(carArray.searchByModel(cars, args[1])));
                 break;
             case "firstReg":
-                System.out.println(Arrays.toString(searchByFirstReg(cars, Integer.parseInt(args[1]))));
+                System.out.println(Arrays.toString(carArray.searchByFirstReg(cars, Integer.parseInt(args[1]))));
                 break;
             case "color":
-                System.out.println(Arrays.toString(searchByColor(cars, Color.valueOf(args[1]))));
+                System.out.println(Arrays.toString(carArray.searchByColor(cars, Color.valueOf(args[1]))));
                 break;
             case "price":
-                System.out.println(Arrays.toString(searchByPrice(cars, Integer.parseInt(args[1]))));
+                System.out.println(Arrays.toString(carArray.searchByPrice(cars, Integer.parseInt(args[1]))));
                 break;
             case "registration":
-                System.out.println(searchByRegistration(cars, args[1]));
+                System.out.println(carArray.searchByRegistration(cars, args[1]));
                 break;
             default:
                 System.out.println("parameter not found!");
