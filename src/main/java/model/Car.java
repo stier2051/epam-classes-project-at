@@ -2,47 +2,43 @@ package model;
 
 public class Car {
     private int id;
-    private String make; /* марка */
+    private AutoMake autoMake; /* марка */
     private String model; /* модель */
     private int firstRegistration; /* год выпуска */
-    private String color; /* цвет */
+    private Color color; /* цвет */
     private int price; /* цена */
     private String registration; /* регистрационный номер */
 
-    public Car(String make, String model, int firstRegistration, String color, String registration) {
-        this.make = make;
+    public Car(AutoMake autoMake, String model, int firstRegistration, Color color, String registration) {
+        this.autoMake = autoMake;
         this.model = model;
         this.firstRegistration = firstRegistration;
         this.color = color;
         this.registration = registration;
     }
 
-    public Car(int id, String make, String model, int price) {
+    public Car(int id, AutoMake autoMake, String model, Color color, int price) {
         this.id = id;
-        this.make = make;
+        this.autoMake = autoMake;
         this.model = model;
+        this.color = color;
         this.price = price;
     }
 
     @Override
     public String toString() {
-        return "Car make: " + make +
+        return "Car make: " + autoMake +
                 ", model: " + model +
-                ", price: " + price +
-                ", first registration: " + firstRegistration;
+                ", color: " + color;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getMake() {
-        return make;
-    }
+    public AutoMake getAutoMake() { return autoMake; }
 
-    public void setMake(String make) {
-        this.make = make;
-    }
+    public void setAutoMake(AutoMake autoMake) { this.autoMake = autoMake; }
 
     public String getModel() {
         return model;
@@ -56,13 +52,9 @@ public class Car {
         return firstRegistration;
     }
 
-    public String getColor() {
-        return color;
-    }
+    public Color getColor() { return color; }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
+    public void setColor(Color color) { this.color = color; }
 
     public int getPrice() {
         return price;
